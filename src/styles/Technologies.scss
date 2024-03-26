@@ -1,0 +1,67 @@
+@import "colors.scss";
+
+
+
+.Technologies{
+    margin-top: 9rem;
+    h1{
+        color: $green-vogue-300;;
+        font-family: Poppins;
+        font-size: 1.5rem;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+    
+    }
+}
+.consection-item{    
+display: flex;
+width: 8rem;
+flex-wrap: wrap;
+flex-direction: column;
+align-items: center;
+justify-content:center;
+
+border-radius: 0.9375rem 0.9375rem 0rem 0rem;
+opacity: 0.8;
+background: linear-gradient(180deg, #00447A 0%, #00203D 100%);
+&:hover{
+
+}
+h4{
+color: $green-vogue-50;
+text-align: center;
+font-family: Poppins;
+font-size: 1rem;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+display:flex;
+}
+}
+.consection{
+   display: flex;
+    gap: .25rem;
+    flex-wrap: wrap;
+    column-gap: 2rem;
+    justify-content:start;
+    align-items: center;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+
+}
+.container-consection{
+    h3{
+        color: $green-vogue-300;
+        font-family: Poppins;
+        font-size: 1.25rem;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;}
+}
+.Tech-icons{
+    width:4rem;
+    height:3rem;
+    margin-bottom:1rem;
+}

@@ -1,10 +1,38 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
+import Header from '../components/Header.astro';
+import "../styles/Header.scss"
+import AboutMe from '../components/AboutMe.astro';
+import Technologies from '../components/Technologies.astro';
+import Works from '../components/Works.astro';
+import Footer from '../components/Footer.astro';
 ---
 
 <Layout title="Welcome to Astro.">
-	
+	<main>
+	<Header></Header>
+	<AboutMe></AboutMe>
+	<Technologies></Technologies>
+	<Works></Works>
+	<Footer></Footer>
 	</main>
 </Layout>
 
+<style>
+	html {
+		background: var(--Green-Vogue-950, #00203D);
+	}
+	main {
+		margin: auto;
+		padding: 1rem;
+		width: 1024px;
+		max-width: calc(100% - 2rem);
+	}
+	.link-card-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+		gap: 2rem;
+		padding: 0;
+	}
+</style>
