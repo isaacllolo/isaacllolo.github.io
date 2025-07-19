@@ -1,0 +1,66 @@
+.social-icon {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: transparent;
+  border-radius: 0.5rem;
+  color: var(--color-text);
+  font-size: 1rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  z-index: 0;
+
+  i {
+    font-size: 1.25rem;
+  }
+
+  .icon-label {
+    font-weight: 500;
+  }
+
+  // Snake-border animado alrededor
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 2px;
+    background: linear-gradient(
+      90deg,
+      var(--accent, #00f),
+      transparent,
+      var(--accent, #00f)
+    );
+    background-size: 200% 200%;
+    animation: borderMove 2s linear infinite;
+    z-index: -1;
+    mask: 
+      linear-gradient(#000 0 0) content-box, 
+      linear-gradient(#000 0 0);
+    mask-composite: exclude;
+    -webkit-mask: 
+      linear-gradient(#000 0 0) content-box, 
+      linear-gradient(#000 0 0);
+    -webkit-mask-composite: destination-out;
+    box-sizing: border-box;
+  }
+
+  &:hover {
+    background: var(--accent);
+    color: var(--background);
+    transform: translateY(-2px);
+    box-shadow: 0 0 8px var(--accent);
+  }
+}
+
+@keyframes borderMove {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 200% 200%;
+  }
+}

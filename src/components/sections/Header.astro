@@ -1,0 +1,52 @@
+---
+import "../../styles/Header.scss"
+---
+
+<header>
+  <nav class="main-navbar">
+    <div class="navigation">
+      <a href="#conocimientos">Conocimientos</a>
+      <a href="#experiencia">Experiencia</a>
+      <a href="#proyectos">Proyectos</a>
+      <a href="#sobremi">Sobre mí</a>
+
+      <button id="theme-toggle" aria-label="Cambiar tema">
+        <iconify-icon id="theme-icon" icon="ph:sun-bold" width="24"></iconify-icon>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<script is:inline>
+  const themeIcon = document.getElementById('theme-icon');
+
+  function setTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+    if (theme === 'light') themeIcon.setAttribute('icon', 'ph:sun-bold');
+    if (theme === 'dark') themeIcon.setAttribute('icon', 'ph:moon-bold');
+    if (theme === 'sci-fi') themeIcon.setAttribute('icon', 'mdi:ufo');
+  }
+window.addEventListener('scroll', () => {
+  const header = document.querySelector('header');
+  if (window.scrollY > 20) {
+    header.classList.add('scrolled');
+  } else {
+    header.classList.remove('scrolled');
+  }
+});
+
+  const storedTheme = localStorage.getItem('theme');
+  if (storedTheme) {
+    setTheme(storedTheme);
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const toggleBtn = document.getElementById('theme-toggle');
+    toggleBtn?.addEventListener('click', () => {
+      const current = document.documentElement.getAttribute('data-theme');
+      const next = current === 'light' ? 'dark' : current === 'dark' ? 'sci-fi' : 'light';
+      setTheme(next);
+    });
+  });
+</script>

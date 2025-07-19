@@ -1,0 +1,12 @@
+---
+interface Props {
+  name: string;
+  icon: string;
+}
+const { name, icon } = Astro.props;
+---
+
+<div class="consection-item">
+  <iconify-icon icon={`simple-icons:${icon}`} class="Tech-icons" />
+  <h4>{name}</h4>
+</div>

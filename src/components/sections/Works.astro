@@ -1,0 +1,77 @@
+---
+import "../../styles/Works.scss";
+
+const projects = [
+  {
+    title: "Cinefilum",
+    description:
+      "Aplicación para cinéfilos que permite explorar, marcar favoritas y recibir recomendaciones con IA basada en tus gustos. Incluye búsqueda por título, categoría y sistema de sugerencias con películas similares.",
+    image: "https://porfolio.dev/projects/svgl.webp",
+    preview: "webpz",
+    code: "https://github.com/tuusuario/cinefilum",
+    tech: ["react", "tailwindcss", "tmdb", "huggingface"]
+  },
+  {
+    title: "GlicemiApp",
+    description:
+      "Monitoreo de glucemia y tratamientos para personas y cuidadores de múltiples pacientes. Registro de datos, recordatorios y exportación médica sencilla.",
+    image: "https://porfolio.dev/projects/svgl.webp",
+    preview: "https://glicemiapp.vercel.app",
+    code: "https://github.com/tuusuario/glicemiapp",
+    tech: ["react", "firebase", "sass", "pwa"]
+  }
+];
+---
+
+<div id="proyectos" class="Works">
+  <h1 class="section-title">
+    <iconify-icon class="icon" icon="fa6-solid:code" inline></iconify-icon>
+    Proyectos
+  </h1>
+
+  {projects.map((project) => (
+    <div class="work-card">
+      <div class="work-image group">
+        <img
+          src={project.image}
+          alt={`Vista previa de ${project.title}`}
+          loading="lazy"
+        />
+      </div>
+      <div class="work-details">
+        <h3>{project.title}</h3>
+        <p>{project.description}</p>
+
+        <div class="tech-stack">
+          {project.tech.map((t) => (
+            <span class="tech-chip" title={t}>
+              <iconify-icon icon={`simple-icons:${t}`} width="16" height="16" inline />
+              {t}
+            </span>
+          ))}
+        </div>
+
+        <div class="work-links">
+          <a
+            href={project.preview}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="work-button"
+          >
+            <iconify-icon icon="fa6-solid:eye" width="16" inline></iconify-icon>
+            Preview
+          </a>
+          <a
+            href={project.code}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="work-button"
+          >
+            <iconify-icon icon="fa6-solid:code" width="16" inline></iconify-icon>
+            Código
+          </a>
+        </div>
+      </div>
+    </div>
+  ))}
+</div>

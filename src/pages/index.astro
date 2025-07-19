@@ -1,20 +1,24 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
-import Header from '../components/Header.astro';
-import "../styles/Header.scss"
-import AboutMe from '../components/AboutMe.astro';
-import Technologies from '../components/Technologies.astro';
-import Works from '../components/Works.astro';
-import Footer from '../components/Footer.astro';
+import Card from '../components/sections/Card.astro';
+import Header from '../components/sections/Header.astro';
+import "../styles/Header.scss";
+import AboutMe from '../components/sections/AboutMe.astro';
+import Technologies from '../components/sections/Technologies.astro';
+import Works from '../components/sections/Works.astro';
+import Footer from '../components/sections/Footer.astro';
+import Hero from '../components/sections/Hero.astro';
+import Experience from '../components/sections/Experience.astro';
 ---
 
 <Layout title="Welcome to Astro.">
 	<main>
 	<Header></Header>
-	<AboutMe></AboutMe>
+	<Hero></Hero>
 	<Technologies></Technologies>
 	<Works></Works>
+	<Experience></Experience>
+	<AboutMe></AboutMe>
 	<Footer></Footer>
 	</main>
 </Layout>
@@ -24,10 +28,9 @@ import Footer from '../components/Footer.astro';
 		background: var(--Green-Vogue-950, #00203D);
 	}
 	main {
-		margin: auto;
-		padding: 1rem;
-		width: 1024px;
-		max-width: calc(100% - 2rem);
+	padding: 0.5rem 3rem;
+	width: 100%; /* ✅ Usa 100% del contenedor sin romper el layout */
+	box-sizing: border-box;
 	}
 	.link-card-grid {
 		display: grid;

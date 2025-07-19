@@ -1,0 +1,85 @@
+---
+import "../../styles/Technologies.scss";
+import TechItem from "../TechItem.astro";
+
+const tabs = [
+  { id: "frontend", label: "Frontend" },
+  { id: "backend", label: "Backend" },
+  { id: "db", label: "Bases de Datos" },
+  { id: "cicd", label: "CI/CD" },
+  { id: "tools", label: "Herramientas" },
+];
+---
+<div id="conocimientos" class="Technologies">
+  <h1 class="section-title">Conocimientos</h1>
+
+  <div class="tabs">
+    {tabs.map(tab => (
+      <button
+        class="tab-button"
+        data-tab={tab.id}
+        aria-selected={tab.id === "frontend" ? "true" : "false"}
+      >
+        {tab.label}
+      </button>
+    ))}
+  </div>
+
+  <div class="tab-content" id="frontend">
+    <h2>Frontend</h2>
+    <div class="consection">
+      <TechItem name="HTML5" icon="html5" />
+      <TechItem name="CSS3" icon="css3" />
+      <TechItem name="JavaScript" icon="javascript" />
+      <TechItem name="React" icon="react" />
+    </div>
+  </div>
+
+  <div class="tab-content hidden" id="backend">
+    <h2>Backend</h2>
+    <div class="consection">
+      <TechItem name="Node.js" icon="nodedotjs" />
+      <TechItem name="Django" icon="django" />
+    </div>
+  </div>
+
+  <div class="tab-content hidden" id="db">
+    <h2>Bases de Datos</h2>
+    <div class="consection">
+      <TechItem name="PostgreSQL" icon="postgresql" />
+      <TechItem name="MongoDB" icon="mongodb" />
+    </div>
+  </div>
+
+  <div class="tab-content hidden" id="cicd">
+    <h2>CI/CD</h2>
+    <div class="consection">
+      <TechItem name="GitHub Actions" icon="githubactions" />
+    </div>
+  </div>
+
+  <div class="tab-content hidden" id="tools">
+    <h2>Herramientas</h2>
+    <div class="consection">
+      <TechItem name="Visual Studio Code" icon="visualstudiocode" />
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', function() {
+    const buttons = document.querySelectorAll('.tab-button');
+    const contents = document.querySelectorAll('.tab-content');
+
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        buttons.forEach(b => b.setAttribute('aria-selected', 'false'));
+        contents.forEach(c => c.classList.add('hidden'));
+
+        btn.setAttribute('aria-selected', 'true');
+        const tabId = btn.dataset.tab;
+        document.getElementById(tabId).classList.remove('hidden');
+      });
+    });
+  });
+</script>

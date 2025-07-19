@@ -1,0 +1,53 @@
+---
+import '../../styles/Experience.scss';
+
+const experiences = [
+  {
+    title: "Ingeniero de Sistemas - Desarrollador de Software",
+    company: "Universidad de Cartagena",
+    period: "Actualmente...",
+    description: "Parte del grupo de desarrollo, despeñado como Ingeniero de Sistemas para el proyecto de “Sistema Integrado de Gestión para el Aseguramiento de la Calidad” de la Universidad de Cartagena, llevado a cabo bajo la supervisión de la Vicerrectoría de Aseguramiento de la Calidad de la universidad.",
+    link: "https://www.unicartagena.edu.co"
+  },
+  {
+    title: "Estudiante en Prácticas",
+    company: "Banco de la República de Colombia",
+    period: "Julio 2024 - Diciembre 2024",
+    description: "Realizar las labores de levantamiento de requerimientos y automatización en ansible de soluciones de rango departamental en algunas áreas de negocio",
+    link: "https://www.banrep.gov.co",
+},
+  
+];
+---
+
+<section id='experiencia' class="experiencia-laboral">
+  <h1 class="section-title">
+<iconify-icon class="icon" icon="fa6-solid:briefcase" inline></iconify-icon>
+ Experiencia Laboral
+  </h1>
+  <div class="timeline">
+    {experiences.map((exp) => (
+      <div class="timeline-item">
+        <span class="timeline-marker"></span>
+        <div class="timeline-content">
+                <h3 class="experience-title">
+                {exp.title}
+                <span>
+                    @{" "}
+                    {exp.link ? (
+                    <a href={exp.link} target="_blank" rel="noopener noreferrer">
+                        {exp.company}
+                    </a>
+                    ) : (
+                    exp.company
+                    )}
+                </span>
+                </h3>
+
+          <p class="experience-period">{exp.period}</p>
+          <p class="experience-description">{exp.description}</p>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>

@@ -1,0 +1,16 @@
+---
+import "../styles/SocialIcon.scss";
+
+interface Props {
+  url: string;
+  name: string;       // Texto visible y accesibilidad
+  icon: string;       // Nombre del ícono en simple-icons, ej: "linkedin", "github", "gmail"
+}
+
+const { url, name, icon } = Astro.props;
+---
+
+<a class="social-icon" href={url} target="_blank" rel="noopener noreferrer">
+  <iconify-icon icon={`simple-icons:${icon}`} class="social-icon-logo" aria-hidden="true" />
+  <span class="icon-label">{name}</span>
+</a>
