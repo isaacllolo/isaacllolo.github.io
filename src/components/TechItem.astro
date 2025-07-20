@@ -1,12 +1,15 @@
 ---
+import { getTechIcon } from "../utils/getTechIcon";
+
 interface Props {
   name: string;
   icon: string;
 }
 const { name, icon } = Astro.props;
+const finalIcon = await getTechIcon(icon);
 ---
 
 <div class="consection-item">
-  <iconify-icon icon={`simple-icons:${icon}`} class="Tech-icons" />
+  <iconify-icon icon={finalIcon} class="Tech-icons" />
   <h4>{name}</h4>
 </div>

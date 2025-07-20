@@ -1,11 +1,12 @@
 ---
 import "../../styles/Works.scss";
+import { getTechIcon } from "../.././utils/getTechIcon";
 
 const projects = [
   {
     title: "Cinefilum",
     description:
-      "Aplicación para cinéfilos que permite explorar, marcar favoritas y recibir recomendaciones con IA basada en tus gustos. Incluye búsqueda por título, categoría y sistema de sugerencias con películas similares.",
+      "Aplicación para cinéfilos que permite explorar, marcar favoritas y recibir recomendaciones con IA basada en tus gustos.",
     image: "https://porfolio.dev/projects/svgl.webp",
     preview: "webpz",
     code: "https://github.com/tuusuario/cinefilum",
@@ -14,13 +15,23 @@ const projects = [
   {
     title: "GlicemiApp",
     description:
-      "Monitoreo de glucemia y tratamientos para personas y cuidadores de múltiples pacientes. Registro de datos, recordatorios y exportación médica sencilla.",
+      "Es una aplicación para el control y seguimiento de niveles de glucosa en sangre, pensada para personas con condiciones como diabetes, cuidadores o instituciones de salud. Permite registrar mediciones, programar recordatorios de medicamentos y gestionar múltiples pacientes desde una sola cuenta. Además, facilita la exportación de los registros para análisis clínico o seguimiento médico.",
     image: "https://porfolio.dev/projects/svgl.webp",
     preview: "https://glicemiapp.vercel.app",
     code: "https://github.com/tuusuario/glicemiapp",
-    tech: ["react", "firebase", "sass", "pwa"]
+    tech: ["react", "django", "bootstrap", "postgresql"]
   }
 ];
+
+// Preprocesar íconos antes de renderizar
+const techIcons: Record<string, string> = {};
+for (const project of projects) {
+  for (const tech of project.tech) {
+    if (!techIcons[tech]) {
+      techIcons[tech] = await getTechIcon(tech);
+    }
+  }
+}
 ---
 
 <div id="proyectos" class="Works">
@@ -45,7 +56,7 @@ const projects = [
         <div class="tech-stack">
           {project.tech.map((t) => (
             <span class="tech-chip" title={t}>
-              <iconify-icon icon={`simple-icons:${t}`} width="16" height="16" inline />
+              <iconify-icon icon={techIcons[t]} width="16" height="16" inline />
               {t}
             </span>
           ))}
