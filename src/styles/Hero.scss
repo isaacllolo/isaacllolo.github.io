@@ -91,11 +91,12 @@ justify-content: center;
       font-size: 0.95rem;
       line-height: 1.5;
       color: var(--primary);
+    .highlight {
+      color: var(--primary);
+      font-weight: 600;
+      font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+    }
 
-      .highlight {
-        color: var(--primary);
-        font-weight: 600;
-      }
 
       .cursor {
         animation: blink 1s step-start infinite;
