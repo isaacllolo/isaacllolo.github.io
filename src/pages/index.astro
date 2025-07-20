@@ -1,6 +1,5 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Card from '../components/sections/Card.astro';
 import Header from '../components/sections/Header.astro';
 import "../styles/Header.scss";
 import AboutMe from '../components/sections/AboutMe.astro';
@@ -12,8 +11,8 @@ import Experience from '../components/sections/Experience.astro';
 ---
 
 <Layout title="Welcome to Astro.">
-	<main>
 	<Header></Header>
+	<main>
 	<Hero></Hero>
 	<Technologies></Technologies>
 	<Works></Works>
@@ -28,14 +27,9 @@ import Experience from '../components/sections/Experience.astro';
 		background: var(--Green-Vogue-950, #00203D);
 	}
 	main {
-	padding: 0.5rem 3rem;
+	padding: 0.5rem 2rem;
 	width: 100%; /* ✅ Usa 100% del contenedor sin romper el layout */
 	box-sizing: border-box;
 	}
-	.link-card-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-		gap: 2rem;
-		padding: 0;
-	}
+x
 </style>
